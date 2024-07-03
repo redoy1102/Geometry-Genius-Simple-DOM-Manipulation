@@ -1,11 +1,9 @@
-function clearInput(x, y) {
+const clearInput = (x, y) => {
     returnElement(x).value = '';
     returnElement(y).value = '';
 }
 
-function returnElement(id) {
-    return document.getElementById(id);
-}
+const returnElement = id => document.getElementById(id);
 
 function getTag(tagName) {
     if (tagName == 'p') {
@@ -16,27 +14,19 @@ function getTag(tagName) {
     }
 }
 
-function returnValue(id) {
+const returnValue = (id) => {
     let element = returnElement(id);
     return element.value;
 }
 
 function areaValidation(area) {
-    if (isNaN(area) == false) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    if (isNaN(area) == false) return true;
+    else  return false;
 }
 
 function capitalizeFirstCharacter(string) {
-    if (!string) {
-        return string
-    }
-    else {
-        return string.charAt(0).toUpperCase() + string.slice(1);
-    }
+    if (!string) return string
+    else         return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function addToCalculationEntry(shapeName, area) {
@@ -51,9 +41,7 @@ function addToCalculationEntry(shapeName, area) {
     calculationContainer.appendChild(p);
 }
 
-function setErrorMessage() {
-    alert('Please type number.');
-}
+const setErrorMessage = () => alert('Please type number.');
 
 function area(name, id1, id2) {
     if (name == 'triangle') {
@@ -62,9 +50,7 @@ function area(name, id1, id2) {
             addToCalculationEntry(name, area);
             clearInput(id1, id2);
         }
-        else {
-            setErrorMessage();
-        }
+        else setErrorMessage();
     }
     else if (name == 'rectangle') {
         const area = parseFloat(returnValue(id1)) * parseFloat(returnValue(id2));
@@ -72,9 +58,7 @@ function area(name, id1, id2) {
             addToCalculationEntry(name, area);
             clearInput(id1, id2);
         }
-        else {
-            setErrorMessage();
-        }
+        else setErrorMessage();
     }
     else if (name == 'ellipse') {
         const area = 3.1416 * parseFloat(returnValue(id1)) * parseFloat(returnValue(id2));
@@ -82,9 +66,7 @@ function area(name, id1, id2) {
             addToCalculationEntry(name, area);
             clearInput(id1, id2);
         }
-        else {
-            setErrorMessage();
-        }
+        else setErrorMessage();
     }
     else if (name == 'parallelogram') {
         const area = parseFloat(returnValue(id1)) * parseFloat(returnValue(id2));
@@ -92,9 +74,7 @@ function area(name, id1, id2) {
             addToCalculationEntry(name, area);
             clearInput(id1, id2);
         }
-        else {
-            setErrorMessage();
-        }
+        else setErrorMessage();
     }
     else if (name == 'pentagon') {
         const area = 0.5 * parseFloat(returnValue(id1)) * parseFloat(returnValue(id2));
@@ -102,9 +82,7 @@ function area(name, id1, id2) {
             addToCalculationEntry(name, area);
             clearInput(id1, id2);
         }
-        else {
-            setErrorMessage();
-        }
+        else setErrorMessage();
     }
     else if (name == 'rhombus') {
         const area = 0.5 * parseFloat(returnValue(id1)) * parseFloat(returnValue(id2));
@@ -112,8 +90,6 @@ function area(name, id1, id2) {
             addToCalculationEntry(name, area);
             clearInput(id1, id2);
         }
-        else {
-            setErrorMessage();
-        }
+        else setErrorMessage();
     }
 }
